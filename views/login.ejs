@@ -6,8 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>register</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-<body style="background-color: rosybrown;">
+    <% if (locals.userLogin) { %>
+        <style>
+         :root{
+           --userColor : <%- locals.userLogin.color %>;
+         }
+       </style>
+   <% } %>
+ </head>
+ <% if (locals.userLogin) { %>
+    <body style="background-color: var(--userColor);" >
+<% }else { %>
+    <body>
+<% } %>
+
     <%- include('./partials/header') %> 
     <main>
         <h1>registro</h1>
